@@ -24,7 +24,6 @@ room: {
     build: DBRef,
     resi: [
         {
-            _id: ObjectId,
             mobi: "13800138000",
             pwd: "123456",
             name: "张三",
@@ -34,7 +33,6 @@ room: {
     ],
     noti: [
         {
-            _id: ObjectId,
             cont: "一些消息",
             subj: "title",
             time: Date() //若时间大于last_r，则判断为未读消息

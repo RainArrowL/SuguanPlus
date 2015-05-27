@@ -1,6 +1,7 @@
 /**
  * @brief 楼栋数据模型
  *
+ * @param code {Number} 楼栋代号
  * @param name {String} 宿舍楼名字
  * @param notices {Array} 保存每一条公告
  *        @param subj {String} 公告标题

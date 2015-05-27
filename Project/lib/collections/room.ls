@@ -1,6 +1,7 @@
 /**
  * @brief 房间数据模型
  *
+ * @param code {Number} 房间代号
  * @param number {String} 房号
  * @param build {DBRef} 楼栋，保存对building的引用
  * @param resids {Array} 居住人，保存每个居住人的信息
