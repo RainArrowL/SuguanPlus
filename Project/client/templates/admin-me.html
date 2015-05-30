@@ -1,0 +1,6 @@
+<template name="adminMe">
+  {{#if currentUser.profile.building }}
+  {{else}}
+  <a href="/create">创建楼栋</a>
+  {{/if}}
+</template>

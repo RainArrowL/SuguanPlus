@@ -22,8 +22,28 @@ config =
 Router.configure config
 
 Router.route '/', !->
+  current-level = Meteor.user!.profile.level
+  if current-level is 1
+    @render 'admin-index', {
+      'data': ->
+    }
+  else
+    @render 'student-index', {
+      'data': ->
+    }
   #todo
 
+
+Router.route '/me', !->
+  current-level = Meteor.user!.profile.level
+  if current-level is 1
+    @render 'admin-me', {
+      'data': ->
+    }
+  else
+    @render 'student-me', {
+      'data': ->
+    }
 
 # Accounts
 Router.route '/signin', !->
@@ -40,7 +60,6 @@ Router.route '/signout', !->
 
 
 
-
 Router.route '/table', !->
   @render 'table', {
     'data': ->
@@ -50,19 +69,31 @@ Router.route '/table', !->
 Router.route '/post', !->
   @render 'post'
 
-Router.route 'create', !->
-  @render 'create'
+Router.route '/create', !->
+  if Meteor.user!.profile.level is 1
+    @render 'create-building', {
+      'data': ->
+    }
+  else
+    @render 'create-room', {
+      'data': ->
+    }
 
-Router.route 'join', !->
+
+Router.route '/join', !->
   @render 'join'
+
+Router.route '/msg', !->
+  @render 'message-page', {
+    'data': ->
+      doc = Rooms.find-one {'_id': Meteor.user!.profile.room}
+      {'msglist': doc.notifs}
+  }
 
 # Route.route '/'
 require-login = !->
   if not Meteor.user! then @render 'signin'
   else @next!
-
-get-level = !->
-  @next!
 
 # Router.on-before-action 'dataNotFound', all
 

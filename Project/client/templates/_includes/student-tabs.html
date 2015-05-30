@@ -1,0 +1,11 @@
+<template name="studentTabs">
+  <ul>
+    <li><a href="/">首页</a></li>
+    <li><a href="/msg">消息</a>
+      {{#if notifCount}}
+      <span> {{notifCount}} </span>
+      {{/if}}
+    </li>
+    <li><a href="/me">我</a></li>
+  </ul>
+</template>

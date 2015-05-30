@@ -1,15 +1,8 @@
 <template name="layout">
-  <nav>
-    <ul>
-      <li><a href="/post">发布</a></li>
-      <li><a href="/create">创建房间</a></li>
-      <li><a href="/join">加入房间</a></li>
-    </ul>
-    <ul>
-      <li><a href="/signin">登录</a></li>
-      <li><a href="/signup">注册</a></li>
-    </ul>
-  </nav>
-  
+  {{#if currentUser }}
+    {{ currentUser.profile.name }}
+  {{/if}}
+  <button id="logout">logout</button>  
     {{> yield}}
+  {{> studentTabs}}
 </template>
