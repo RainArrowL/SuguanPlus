@@ -1,7 +1,13 @@
 <template name="messagePage">
-  显示消息
-  {{#each msglist}}
-    <h3>{{subject}}</h3>
-    <p>{{content}}</p>
-  {{/each}}
+  <ul class="ui-yick-list ui-list">
+    {{#each msglist}}
+    <li class="ui-yick-item ui-item ui-ignore-space">
+      <a href="#">
+        <p class="ui-no-wrap">{{subject}}</p>
+        <p class="ui-red">{{dateToString time}}</p>
+        <p class="ui-gray">{{content}}</p>
+      </a>
+    </li>
+    {{/each}}
+  </ul>
 </template>

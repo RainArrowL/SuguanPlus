@@ -8,7 +8,9 @@ Template.signin.events {
 
     Meteor.login-with-password phone, password, (err)->
       if err then alert 'error'
-      else console.log 'success'
+      else
+        console.log 'success'
+        Router.go '/'
 }
 
 Template.signup.events {
@@ -23,6 +25,12 @@ Template.signup.events {
     console.log password
     Accounts.create-user {username: phone, password: password, profile: {name: name, level: +level}}, (err)->
       if err then console.log err
-      else console.log 'success'
+      else
+        console.log 'success'
+        Router.go '/'
 }
 
+Template.layout.helpers {
+  isStudent: ->
+    Meteor.user!.profile.level is 0
+}

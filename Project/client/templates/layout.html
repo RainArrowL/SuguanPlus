@@ -1,8 +1,10 @@
 <template name="layout">
-  {{#if currentUser }}
-    {{ currentUser.profile.name }}
-  {{/if}}
-  <button id="logout">logout</button>  
     {{> yield}}
-  {{> studentTabs}}
+  {{#if currentUser }}
+    {{#if isStudent }}
+      {{> studentTabs}}
+    {{else}}
+      {{> adminTabs}}
+    {{/if}}
+  {{/if}}
 </template>

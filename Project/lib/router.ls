@@ -90,9 +90,13 @@ Router.route '/msg', !->
       {'msglist': doc.notifs}
   }
 
+Router.route 'logout', !->
+  Meteor.logout!
+  @redirect '/signin'
+
 # Route.route '/'
 require-login = !->
-  if not Meteor.user! then @render 'signin'
+  if not Meteor.user! then @redirect '/signin'
   else @next!
 
 # Router.on-before-action 'dataNotFound', all

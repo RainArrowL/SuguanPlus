@@ -1,10 +1,24 @@
 <template name="signin">
-  登录
+  <div class="ui-yick-btn-panel">
+    <h3 class="ui-yick-title">
+      宿管Plus
+    </h3>
+  </div>
   <form action="" id="signin-form">
-    <div>
-      账号/手机号 <input type="number" id="signin-phone">
-      密码 <input type="password" id="signin-password">
-      <input type="submit" id="signin-button">
+    <div class="ui-yick-list-panel ui-panel">
+      <div class="ui-yick-row">
+        <input type="text" class="ui-yick-input" placeholder="手机号" id="signin-phone">
+      </div>
+      <div class="ui-yick-pwd ui-yick-row">
+        <input type="password" class="ui-yick-input" placeholder="密码" id="signin-password">
+        <span class="ui-icon ion-eye-disabled"></span>
+      </div>
+    </div>
+    <div class="ui-yick-btn-panel ui-panel">
+      <button type="submit" class="ui-button ui-block ui-info">登录</button>
     </div>
   </form>
+  <div class="ui-yick-btn-panel ui-panel">
+    <a href="/signup">新用户</a>
+  </div>
 </template>

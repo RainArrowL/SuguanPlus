@@ -1,13 +1,28 @@
 <template name="signup">
-  注册
-  <form action="" id="signup-form">
-    <div>
-      手机号/账号 <input type="number" id="account-phone">
-      密码 <input type="password" id="account-password">
-      等级 <input type="number" id="account-level">
-      名字 <input type="text" id="account-name">
 
-      <input type="submit" id="create-account">
+  <div class="ui-yick-btn-panel">
+    <h3 class="ui-yick-title">
+      宿管Plus
+    </h3>
+  </div>
+  <form action="" id="signup-form">
+    <div class="ui-yick-list-panel ui-panel">
+      <div class="ui-yick-row">
+        <input type="number" class="ui-yick-input" placeholder="手机号/账号" id="account-phone">
+      </div>
+      <div class="ui-yick-pwd ui-yick-row">
+        <input type="password" class="ui-yick-input" placeholder="密码" id="account-password">
+        <span class="ui-icon ion-eye-disabled"></span>
+      </div>
+      <div class="ui-yick-row">
+        <input type="number" class="ui-yick-input" placeholder="等级" id="account-level">
+      </div>
+      <div class="ui-yick-row">
+        <input type="text" class="ui-yick-input" placeholder="名字" id="account-name">
+      </div>
+    </div>
+    <div class="ui-yick-btn-panel ui-panel">
+      <button type="submit" class="ui-button ui-block ui-info">注册</button>
     </div>
   </form>
 </template>
