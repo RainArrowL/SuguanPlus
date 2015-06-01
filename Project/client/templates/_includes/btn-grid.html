@@ -1,0 +1,15 @@
+<template name="btnGrid">
+  <div class="ui-yick-grid ui-yick-item-panel">
+    {{#each building}}
+    <div class="ui-yick-grid-row">
+      {{#each floor}}
+      <div class="ui-yick-cell">
+        <button class="ui-button">
+          {{getRoomNum ../.. room}}
+        </button>
+      </div>
+      {{/each}}
+    </div>
+    {{/each}}
+  </div>
+</template>

@@ -1,4 +1,4 @@
-body {
+html, body {
   background-color: rgb(240, 240, 240);
   bkit-touch-callout: none;
 
@@ -15,6 +15,9 @@ a {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+span.ui-label {
+  text-decoration: none;
 }
 .ui-yick-list {
   overflow: hidden;
@@ -64,7 +67,7 @@ a {
 .ui-yick-pwd span {
   position: absolute;
   right: 20px;
-  top: 12px;
+  top: 8px;
   font-size: 20px;
   opacity: .3;
 }
@@ -82,4 +85,170 @@ a {
 .ui-bottom-bar-button .ui-red-counter {
   top: 0;
   right: 0;
+}
+
+
+#page2-counter-sum {
+  top: 0;
+  right: 25%;
+}
+
+.ui-bottom-bar-button {
+  position: relative;
+}
+
+.my-notice {
+  line-height: 30px;
+  overflow: hidden;
+}
+
+.my-top-block {
+  margin-top: 20px;
+}
+
+.my-title > a {
+  font-weight: bold;
+  color: #0079FF !important;
+}
+
+.my-sub-title {
+  margin-top: 6px;
+  margin-bottom: 10px;
+  /*color: #6E6E6E;*/
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.my-date {
+  float: right;
+  font-size: 0.9em;
+  margin-right: 10px;
+  color: #6E6E6E;
+}
+
+.ui-bottom-bar-button .ui-icon {
+  height: 28px;
+  padding: 0;
+}
+
+.ui-yick-counter {
+  top: 0;
+  right: 25%;
+}
+
+.ui-yick-page {
+  border-top: 48px solid transparent;
+  border-bottom: 48px solid transparent;
+}
+
+h6 {
+  line-height: 48px;
+  margin: 0;
+  font-size: 16px;
+}
+
+.ui-yick-top-btn {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  right: 10px;
+  border: none;
+}
+
+.ui-yick-top-btn-left {
+  left: 10px;
+  line-height: 24px;
+  top: 2px;
+}
+
+.ui-yick-top-btn-left .ui-icon {
+  font-size: 28px;
+}
+.ui-yick-top-btn-left span {
+  vertical-align: middle;
+}
+.ui-item .ui-yick-edit-icon {
+  display: none;
+}
+.ui-yick-edit-item a {
+  padding: 10px 12px 10px 40px;
+}
+
+.ui-yick-edit-item .ui-yick-edit-icon {
+  display: block;
+  z-index: 20;
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  font-size: 24px;
+  left: -2px;
+}
+
+.ui-yick-edit-item .ion-ios-circle-outline {
+  color: #ccc;
+}
+
+.ui-yick-edit-item .ion-ios-checkmark {
+  color: #0079FF;
+}
+
+.ui-yick-grid-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.ui-yick-cell {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.ui-yick-cell .ui-button {
+  display: block;
+  margin: 6px auto;
+}
+.ui-yick-edit-icon {
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
+
+.ui-yick-item-panel {
+  display: none;
+}
+
+.ui-yick-btn-active {
+  color: #fff;
+  background: #0079FF;
+}
+.ui-list.arrow-right .ui-item:after {
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
+
+.ui-list.arrow-right > .ui-yick-open:after {
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.ui-yick-select {
+  background-color: #fff;
+  background-image: none;
+  border: none;
+  height: 36px;
+  width: 100%;
+  font-size: 1.1rem;
+  color: rgb(51, 51, 51);
+}
+
+.ui-yick-toggle-panel {
+  display: none;
+}
+
+.ui-yick-show {
+  display: block;
 }

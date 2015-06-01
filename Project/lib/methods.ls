@@ -18,7 +18,10 @@ Meteor.methods {
     Meteor.users.update {'_id': id}, {$set: {'profile.room': doc._id}}, {upsert: true}
   
   insertNotif: (sendto, doc) !->
-    Rooms.update {'name': sendto}, {$push: {'notifs': doc}}, {upsert: true}
+    if sendto is 0
+      Rooms.update {}, {$push: {'notifs': doc}}, {upsert: true}
+    else
+      Rooms.update {'name': sendto}, {$push: {'notifs': doc}}, {upsert: true}
 
   updateLast: (id) ->
     Meteor.users.update {'_id': id}, {$set: {'profile.last': new Date!}}, {upsert: true}

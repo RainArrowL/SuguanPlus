@@ -1,20 +1,19 @@
 <template name="studentTabs">
   <div class="ui-bottom-bar js-no-bounce" role="toolbar"> <!-- tabindex="0" 在android上会触发一个高亮边框 -->
     <!-- 尾部内容 -->
-    {{ currentPath }}
     <a href="/" class="ui-bottom-bar-button{{#if isHome}} js-active{{/if}}" role="button">
-        <span class="ui-icon ion-home"></span>
+        <span class="ui-icon {{#if isHome}}ion-ios-home{{else}}ion-ios-home-outline{{/if}}"></span>
         <span class="ui-label">首页</span>
     </a>
     <a href="/msg" class="ui-bottom-bar-button{{#if isMsg}} js-active{{/if}}" role="button">
-        <span class="ui-icon ion-ios7-bell-outline"></span>
+        <span class="ui-icon {{#if isMsg}}ion-ios-bell{{else}}ion-ios-bell-outline{{/if}}"></span>
         <span class="ui-label">消息</span>
         {{#if notifCount}}
-          <span class="ui-red-counter">{{notifCount}}</span>
+          <span class="ui-red-counter ui-yick-counter">{{notifCount}}</span>
         {{/if}}
     </a>
     <a href="/me" class="ui-bottom-bar-button{{#if isMe}} js-active{{/if}}" role="button">
-        <span class="ui-icon ion-ios7-gear-outline"></span>
+        <span class="ui-icon {{#if isMe}}ion-ios-person{{else}}ion-ios-person-outline{{/if}}"></span>
         <span class="ui-label">我</span>
     </a>
     <!-- /尾部内容-->

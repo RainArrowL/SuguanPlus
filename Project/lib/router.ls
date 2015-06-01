@@ -26,6 +26,11 @@ Router.route '/', !->
   if current-level is 1
     @render 'admin-index', {
       'data': ->
+        d = {'building': []}
+        for i in [1 to 30]
+          if (i-1) % 5 is 0 then d['building'].push {'floor': []}
+          d['building'][Math.floor (i-1)/5]['floor'].push {'room': i}
+        d
     }
   else
     @render 'student-index', {
@@ -66,8 +71,19 @@ Router.route '/table', !->
       #find building in db
   }
 
+Router.route '/post/:sendto', !->
+  @layout 'noTabLayout'
+  @render 'post' , {
+    data: ->
+      {sendto: @params.sendto, noTab: true}
+  }
+
 Router.route '/post', !->
-  @render 'post'
+  @layout 'noTabLayout'
+  @render 'post' , {
+    data: ->
+      {sendto: "", noTab: true}
+  }
 
 Router.route '/create', !->
   if Meteor.user!.profile.level is 1

@@ -1,0 +1,18 @@
+<template name="adminTopBar">
+  <div class="ui-yick-top-bar ui-top-bar js-no-bounce">
+    {{#if index}}
+      <h6>
+        {{#if currentUser }}
+          {{ currentUser.profile.building }}
+        {{/if}}
+      </h6>
+      <button class="ui-yick-top-btn ui-button" id="edit-btn">编辑</button>
+    {{/if}}
+    {{#if post}}
+      <button class="ui-yick-top-btn-left ui-yick-top-btn ui-button" id="back-btn"><span class="ui-icon ion-ios-arrow-back"></span><span> 返回</span></button>
+      <h6>
+        发送消息
+      </h6>
+    {{/if}}
+  </div>
+</template>

@@ -1,13 +1,51 @@
 <template name="adminIndex">
-  {{#if currentUser }}
-    {{ currentUser.profile.building }}
-  {{/if}}
-  <h3 class="ui-caption">楼层</h3>
-  <ul class="ui-list arrow-right">
-    <li class="ui-item"><a href="#">二楼</a></li>
-    <li class="ui-item"><a href="#">三楼</a></li>
-    <li class="ui-item"><a href="#">四楼</a></li>
-    <li class="ui-item"><a href="#">五楼</a></li>
-    <li class="ui-item"><a href="#">六楼</a></li>
-  </ul>
+  {{> adminTopBar index=1}}
+  <div class="ui-page-content ui-yick-page">
+    <h3 class="ui-caption">楼层</h3>
+    <ul class="ui-list arrow-right">
+      <li class="ui-item">
+        <span class="ui-icon ui-yick-edit-icon ion-ios-circle-outline"></span>
+        <a href="#">二楼</a>
+        {{> btnGrid flr=2 building=building}}
+      </li>
+      <li class="ui-item">
+        <span class="ui-icon ui-yick-edit-icon ion-ios-circle-outline"></span>
+        <a href="#">三楼</a>
+        {{> btnGrid flr=3 building=building}}
+      </li>
+      <li class="ui-item">
+        <span class="ui-icon ui-yick-edit-icon ion-ios-circle-outline"></span>
+        <a href="#">四楼</a>
+        {{> btnGrid flr=4 building=building}}
+      </li>
+      <li class="ui-item">
+        <span class="ui-icon ui-yick-edit-icon ion-ios-circle-outline"></span>
+        <a href="#">五楼</a>
+        {{> btnGrid flr=5 building=building}}
+      </li>
+      <li class="ui-item">
+        <span class="ui-icon ui-yick-edit-icon ion-ios-circle-outline"></span>
+        <a href="#">六楼</a>
+        {{> btnGrid flr=6 building=building}}
+      </li>
+      <li class="ui-item">
+        <span class="ui-icon ui-yick-edit-icon ion-ios-circle-outline"></span>
+        <a href="#">七楼</a>
+        {{> btnGrid flr=7 building=building}}
+      </li>
+    </ul>
+
+    <div class="ui-yick-toggle-panel ui-yick-btn-panel ui-panel">
+      <button type="button" id="send-button" class="ui-button ui-block ui-info">发送消息</button>
+    </div>
+  </div>
+  <div id="myActionsheet" role="dialog" class="ui-dialog" aria-labelledby="myActionsheetLable" aria-hidden="false">
+    <div class="js-dialog-content ui-actionsheet">
+        <ul>
+            <li role="button" data-dismiss="dialog">删除</li>
+            <li role="button" data-dismiss="dialog">发送</li>
+        </ul>
+        <a role="button" data-dismiss="dialog" class="ui-actionsheet-cancel">取消</a>
+    </div>
+  </div>
 </template>

@@ -1,5 +1,5 @@
 <template name="layout">
-    {{> yield}}
+  {{> yield}}
   {{#if currentUser }}
     {{#if isStudent }}
       {{> studentTabs}}
@@ -7,4 +7,5 @@
       {{> adminTabs}}
     {{/if}}
   {{/if}}
+  <div class="js-backdrop js-effect-fade"></div>
 </template>

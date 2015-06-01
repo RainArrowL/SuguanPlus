@@ -1,8 +1,45 @@
 <template name="post">
-  <form action="" id="post-form">
-    <input type="text" id="sendto" placeholder="收信人">
-    <input type="text" id="subject" placeholder="标题">
-    <input type="text" id="content" placeholder="内容">
-    <input type="submit">
-  </form>
+  {{> adminTopBar post=1}}
+  <div class="ui-page-content ui-yick-page">
+    <form action="" id="post-form">
+      <div class="ui-yick-list-panel ui-panel">
+        <div class="ui-yick-row">
+          <input type="text" class="ui-yick-input" placeholder="收信人" id="sendto" value="{{sendto}}">
+        </div>
+        <div class="ui-yick-row">
+            <select class="ui-yick-select" name="category" id="category">
+              <option value="0">缴费消息</option>
+              <option value="1">快件消息</option>
+              <option value="2">公告</option>
+            </select>
+        </div>
+        <div class="ui-yick-row">
+          <input type="text" class="ui-yick-input" placeholder="标题" id="subject">
+        </div>
+        <div class="ui-yick-row">
+          <textarea class="ui-yick-input" placeholder="内容" style="height: 200px" id="content"></textarea>
+        </div>
+      </div>
+      <div class="ui-yick-btn-panel ui-panel">
+        <button type="submit" class="ui-button ui-block ui-info">发送</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="myAlert" role="alertdialog" class="ui-dialog js-show" aria-labelledby="myAlertLable" aria-hidden="false">
+    <div class="js-dialog-content ui-alert">
+      <div class="ui-alert-header"><h3 class="ui-alert-title" id="myAlertLable">放弃编辑？</h3></div>
+      <div class="ui-alert-body" role="note"><p>现在返回，你编写的内容将不被保存。</p></div>
+      <div class="ui-alert-footer">
+        <!-- 尽量避免使用 button 元素，在小米上是会有点击高亮边框 -->
+        <a data-dismiss="dialog" id="alert-confirm" role="button" class="ui-alert-button">确定</a>
+        <a data-dismiss="dialog" id="alert-cancel" role="button" class="ui-alert-button">取消</a>
+      </div>
+    </div>
+  </div>
+  <div id="myNotify" data-backdrop="false" data-expires="2000" role="dialog" class="ui-dialog js-show" aria-labelledby="myNotifyLable" aria-hidden="true" style="display: none;">
+    <div class="js-dialog-content ui-notify">
+      <p id="myNotifyLable">缴费金额会自动加入到消息中。</p>
+    </div>
+  </div>
 </template>

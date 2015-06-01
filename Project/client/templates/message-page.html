@@ -1,13 +1,20 @@
 <template name="messagePage">
-  <ul class="ui-yick-list ui-list">
+  {{> messageTopBar}}
+  <div class="ui-page-content ui-yick-page">
+    <h3 class="ui-caption">历史水电费消息</h3>
     {{#each msglist}}
-    <li class="ui-yick-item ui-item ui-ignore-space">
-      <a href="#">
-        <p class="ui-no-wrap">{{subject}}</p>
-        <p class="ui-red">{{dateToString time}}</p>
-        <p class="ui-gray">{{content}}</p>
-      </a>
-    </li>
+    <ul class="ui-list">
+      <li class="ui-item">
+        <a href="#">
+          <div class="my-sub-title"><span class="ui-icon ion-speakerphone"></span> {{subject}}</div>
+          <div class="my-notice">
+            <p>{{content}}</p>
+            <span class="my-date">{{dateToString time}}</span>
+          </div>
+        </a>
+      </li>
+    </ul>
     {{/each}}
-  </ul>
+  </div>
+  
 </template>
