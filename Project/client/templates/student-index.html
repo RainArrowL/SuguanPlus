@@ -5,7 +5,7 @@
     {{> studentTopBar index=1 hasRoom=0}}
   {{/if}}
   <div class="ui-page-content ui-yick-page">
-  {{#if currentUser.profile.room }}
+    {{#if currentUser.profile.room }}
     <!-- 公告栏 -->
     <ul class="ui-list my-top-block">
       <li class="ui-item arrow-right my-title"><a href="/msg/category/4"><span class="ui-icon ion-ios7-chatboxes"></span> 公告栏</a></li>
@@ -40,9 +40,11 @@
 
     </ul>
   {{else}}
-  <div class="ui-yick-init"><span class="ui-icon ion-coffee"></span>
-    <h3>空空如也</h3>
-    <p>你还没有加入任何房间。<a href="/create">去创建（加入）</a></p> </div>
+    <div class="ui-yick-init">
+      <span class="ui-icon ion-coffee"></span>
+      <h3>空空如也</h3>
+      <p>你还没有加入任何房间。<a href="/create">去创建（加入）</a></p>
+    </div>
   {{/if}}
   </div>
 </template>

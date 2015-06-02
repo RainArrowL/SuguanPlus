@@ -2,6 +2,7 @@
 Meteor.methods {
   insertBuilding: (id, name) !->
     Meteor.users.update {'_id': id}, {$set: {'profile.building': name}}, {upsert: true}
+    Buildings.insert {'name': name}
   
   insertRoom: (id, rname, bname) !->
     new-room =
@@ -14,7 +15,6 @@ Meteor.methods {
   
   joinRoom: (id, rname, bname) ->
     doc = Rooms.find-one {'name': rname, 'building': bname}
-    console.log doc._id
     Meteor.users.update {'_id': id}, {$set: {'profile.room': doc._id}}, {upsert: true}
   
   insertNotif: (sendto, doc) !->

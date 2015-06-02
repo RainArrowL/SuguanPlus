@@ -113,7 +113,7 @@ Template.post.events {
     e.prevent-default!
 
     # sendto 需要注意不能包含不存在的宿舍
-    sendto = t.find '#sendto' .value
+    sendto = t.find '#sendto' .value + ';'
     subject = t.find '#subject' .value
     content = t.find '#content' .value
     category = t.find '#category' .value
@@ -127,9 +127,10 @@ Template.post.events {
       time: new Date!
 
     if sendto isnt 0
-      sendto : sendto.split ';'
+      sendto = sendto.split ';'
       for i in sendto
-        Meteor.call 'insertNotif', +i, doc
+        if i.length > 0
+          Meteor.call 'insertNotif', +i, doc
     else
       Meteor.call 'insertNotif', 0, doc
     Router.go '/'

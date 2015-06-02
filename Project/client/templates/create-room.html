@@ -5,7 +5,9 @@
       <div class="ui-yick-list-panel ui-panel">
         <div class="ui-yick-row">
             <select class="ui-yick-select" name="building-name" id="building-name">
-              <option value="慎思园">慎思园</option>
+              {{#each buis}}
+                <option value="{{name}}">{{name}}</option>
+              {{/each}}
             </select>
         </div>
         <div class="ui-yick-row">

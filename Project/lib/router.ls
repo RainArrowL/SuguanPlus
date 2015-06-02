@@ -35,20 +35,21 @@ Router.route '/', !->
   else
     @render 'student-index', {
       'data': ->
-        doc = Rooms.find-one {'_id': Meteor.user!.profile.room}
-        notice = []
-        other = []
-        n-count = 0
-        o-count = 0
-        for i in doc.notifs
-          if n-count is 1 and o-count is 3 then break
-          if i.category is 1
-            notice.push i
-            n-count += 1
-          else
-            other.push i
-            o-count += 1
-        d = {'notice': notice, 'other': other}
+        if Meteor.user!.profile.room
+          doc = Rooms.find-one {'_id': Meteor.user!.profile.room}
+          notice = []
+          other = []
+          n-count = 0
+          o-count = 0
+          for i in doc.notifs
+            if n-count is 1 and o-count is 3 then break
+            if i.category is 1
+              notice.push i
+              n-count += 1
+            else
+              other.push i
+              o-count += 1
+          d = {'notice': notice, 'other': other}
     }
   #todo
 
@@ -108,6 +109,10 @@ Router.route '/create', !->
   else
     @render 'create-room', {
       'data': ->
+        console.log(Buildings.find!.count!)
+
+        {buis: Buildings.find!}
+        
     }
 
 
