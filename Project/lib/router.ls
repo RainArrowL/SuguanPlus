@@ -35,6 +35,20 @@ Router.route '/', !->
   else
     @render 'student-index', {
       'data': ->
+        doc = Rooms.find-one {'_id': Meteor.user!.profile.room}
+        notice = []
+        other = []
+        n-count = 0
+        o-count = 0
+        for i in doc.notifs
+          if n-count is 1 and o-count is 3 then break
+          if i.category is 1
+            notice.push i
+            n-count += 1
+          else
+            other.push i
+            o-count += 1
+        d = {'notice': notice, 'other': other}
     }
   #todo
 
@@ -86,6 +100,7 @@ Router.route '/post', !->
   }
 
 Router.route '/create', !->
+  @layout 'noTabLayout'
   if Meteor.user!.profile.level is 1
     @render 'create-building', {
       'data': ->
@@ -99,11 +114,12 @@ Router.route '/create', !->
 Router.route '/join', !->
   @render 'join'
 
-Router.route '/msg', !->
+Router.route '/msg/category/:cat', !->
+  cat = +@params.cat
   @render 'message-page', {
     'data': ->
       doc = Rooms.find-one {'_id': Meteor.user!.profile.room}
-      {'msglist': doc.notifs}
+      {'msglist': doc.notifs, 'cat': cat}
   }
 
 Router.route 'logout', !->

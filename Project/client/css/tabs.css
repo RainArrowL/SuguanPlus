@@ -8,28 +8,35 @@ html, body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 a {
   text-decoration: none;
 }
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 span.ui-label {
   text-decoration: none;
 }
+
 .ui-yick-list {
   overflow: hidden;
 }
+
 .ui-yick-item {
   width: 100%;
   overflow: hidden;
 }
+
 .ui-yick-item > a {
   width: 100%;
   overflow: hidden;
 }
+
 .ui-yick-input {
   width: 100%;
   border: none;
@@ -57,13 +64,16 @@ span.ui-label {
 .ui-yick-row:last-child {
   border: none;
 }
+
 .ui-yick-btn-panel {
   background-color: transparent;
   border: none;
 }
+
 .ui-yick-pwd {
   padding-right: 60px;
 }
+
 .ui-yick-pwd span {
   position: absolute;
   right: 20px;
@@ -84,7 +94,7 @@ span.ui-label {
 
 .ui-bottom-bar-button .ui-red-counter {
   top: 0;
-  right: 0;
+  right: 30%;
 }
 
 
@@ -250,5 +260,85 @@ h6 {
 }
 
 .ui-yick-show {
+  display: block;
+}
+
+
+.ui-yick-search-form:before {
+  font-size: 18px;
+  color: #aaa;
+  font-family: "Ionicons";
+  display: block;
+  position: absolute;
+  top: 9px;
+  left: 14px;
+  background: transparent;
+  background-size: 16px;
+  width: 16px;
+  height: 16px;
+  content: "\f4a4";
+}
+
+
+.ui-yick-result {
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+.ui-yick-keyword {
+  color: #0079FF;
+}
+
+.ui-yick-item-icon {
+  color: #0079FF;
+  margin-right: 10px;
+}
+
+.ui-yick-init {
+  padding-top: 40px;
+  opacity: .6;
+  text-align: center;
+}
+.ui-yick-init .ui-icon {
+  font-size: 40px;
+}
+
+.ui-item .ui-yick-value {
+  right: 12px;
+  opacity: .7;
+}
+
+
+.ui-yick-list {
+  margin-top: 20px;
+}
+
+.my-notice p {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.fake-password {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  top: 4px;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 60px;
+}
+
+.fake-password.ui-yick-show {
+  display: block;
+}
+
+#signin-password {
+  display: none;
+}
+
+#signin-password.ui-yick-show {
   display: block;
 }

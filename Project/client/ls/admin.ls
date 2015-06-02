@@ -1,17 +1,31 @@
 Template.create-building.events {
-  'submit #create-building': (e, t) !->
+  'focus #building-name': (e, t) !->
+    $ '#my-search' .add-class 'js-focus'
+
+  'input #building-name': (e, t) !->
+    tg = $ e.target
+    $ '.ui-yick-keyword' .text tg.val!
+    $ '.ui-yick-result' .show!
+
+  'click #my-search-cancel': (e,t) !->
+    $ '#my-search' .remove-class 'js-focus'
+
+  'click #submit-btn': (e, t) !->
     e.prevent-default!
 
     building-name = t.find '#building-name' .value
 
     Meteor.call 'insertBuilding', Meteor.user-id!, building-name
 
+    Router.go '/'
+
+  'click #back-btn': (e, t) !->
+    history.back!
 }
 
 
 Template.btnGrid.helpers {
   getRoomNum: (pc, room) ->
-    console.log pc.flr
     pc.flr*100+room
 }
 
@@ -51,6 +65,7 @@ Template.adminIndex.events {
       e.prevent-default!
       tg.toggle-class 'ui-yick-btn-active'
     else
+      $ '#single-submit-btn' .attr 'data-sendto', tg.text!.trim!
       $ '.js-backdrop' .add-class 'js-show'
       $ '#myActionsheet' .add-class 'js-show' .css 'display', 'block'
 
@@ -62,6 +77,11 @@ Template.adminIndex.events {
     rooms = $ '.ui-yick-btn-active'
     param = [$ room .text!.trim! for room in rooms].join ';'
     Router.go "/post/#{param}"
+
+  'click #single-submit-btn': (e, t) !->
+    tg = $ e.target
+    sendto = tg.attr 'data-sendto'
+    Router.go "/post/#{sendto}"
 }
 
 
@@ -82,7 +102,7 @@ Template.post.events {
   
   'change #category': (e, t) !->
     tg = $ e.target
-    if +tg.val! is 2 then $ '#sendto' .val '全体成员'
+    if +tg.val! is 1 then $ '#sendto' .val '全体成员'
     else $ '#sendto' .val ''
     if +tg.val! is 0 
       $ 'html' .add-class 'js-effect-from-top'
@@ -98,7 +118,7 @@ Template.post.events {
     content = t.find '#content' .value
     category = t.find '#category' .value
     
-    if +category is 2 then sendto = 0
+    if +category is 1 then sendto = 0
 
     doc =
       subject: subject
@@ -106,7 +126,26 @@ Template.post.events {
       category: +category
       time: new Date!
 
-    sendto = sendto.split(';')
-    for i in sendto
-      Meteor.call 'insertNotif', +i, doc
+    if sendto isnt 0
+      sendto : sendto.split ';'
+      for i in sendto
+        Meteor.call 'insertNotif', +i, doc
+    else
+      Meteor.call 'insertNotif', 0, doc
+    Router.go '/'
+}
+
+
+Template.admin-tabs.helpers {
+  isMe: ->
+    Router.current!.url is '/me'
+
+  isCharge: ->
+    Router.current!.url is '/charge'
+
+  isMsg: ->
+    Router.current!.url is '/msg'
+
+  isHome: ->
+    Router.current!.url is '/'
 }

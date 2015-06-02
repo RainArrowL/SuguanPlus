@@ -1,5 +1,6 @@
 <template name="adminIndex">
-  {{> adminTopBar index=1}}
+  {{#if currentUser.profile.building }}
+  {{> adminTopBar index=1 hasBuilding=1}}
   <div class="ui-page-content ui-yick-page">
     <h3 class="ui-caption">楼层</h3>
     <ul class="ui-list arrow-right">
@@ -39,11 +40,21 @@
       <button type="button" id="send-button" class="ui-button ui-block ui-info">发送消息</button>
     </div>
   </div>
+  
+  {{else}}
+  {{> adminTopBar index=1 hasBuilding=0}}
+  <div class="ui-page-content ui-yick-page">
+    <div class="ui-yick-init"><span class="ui-icon ion-coffee"></span>
+      <h3>空空如也</h3>
+      <p>你还没有创建（加入）宿舍楼。<a href="/create">现在去创建</a></p>
+    </div>
+  </div>
+  {{/if}}
   <div id="myActionsheet" role="dialog" class="ui-dialog" aria-labelledby="myActionsheetLable" aria-hidden="false">
     <div class="js-dialog-content ui-actionsheet">
         <ul>
             <li role="button" data-dismiss="dialog">删除</li>
-            <li role="button" data-dismiss="dialog">发送</li>
+            <li role="button" data-dismiss="dialog" id="single-submit-btn">发送</li>
         </ul>
         <a role="button" data-dismiss="dialog" class="ui-actionsheet-cancel">取消</a>
     </div>

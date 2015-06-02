@@ -1,45 +1,48 @@
 <template name="studentIndex">
+  {{#if currentUser.profile.room }}
+    {{> studentTopBar index=1 hasRoom=1}}
+  {{else}}
+    {{> studentTopBar index=1 hasRoom=0}}
+  {{/if}}
   <div class="ui-page-content ui-yick-page">
-
+  {{#if currentUser.profile.room }}
     <!-- 公告栏 -->
     <ul class="ui-list my-top-block">
-      <li class="ui-item arrow-right my-title"><a href="#"><span class="ui-icon ion-ios7-chatboxes"></span> 公告栏</a></li>
+      <li class="ui-item arrow-right my-title"><a href="/msg/category/4"><span class="ui-icon ion-ios7-chatboxes"></span> 公告栏</a></li>
+      {{# each notice }}
       <li class="ui-item">
         <a href="#">
-          <div class="my-sub-title"> 温馨提醒</div>
+          <div class="my-sub-title">{{subject}}</div>
           <div class="my-notice">
-            <p>天气转暖，地面潮湿，请同学们注意安全，千万不要在宿舍内点蚊香。</p>
-            <span class="my-date">2015年5月30日</span>
+            <p>{{content}}</p>
+            <span class="my-date">{{dateToString time}}</span>
           </div>
         </a>
       </li>
+      {{/each}}
     </ul>
 
     <!-- 最新消息 -->
     <ul class="ui-list">
-      <li class="ui-item arrow-right my-title"><a href="#"><span class="ui-icon ion-ios7-bell"></span> 最新消息</a></li>
+      <li class="ui-item arrow-right my-title"><a href="/msg/category/4"><span class="ui-icon ion-ios7-bell"></span> 最新消息</a></li>
       <!-- 第一条 -->
+      {{# each other}}
       <li class="ui-item">
         <a href="#">
-          <div class="my-sub-title"><span class="ui-icon ion-ios7-lightbulb"></span> 4月份水电费缴费</div>
+          <div class="my-sub-title"><span class="ui-icon ion-ios7-lightbulb"></span> {{subject}}</div>
           <div class="my-notice">
-            <p>311宿舍，你们好，你们宿舍的水电费金额为100元，请在2015年6月1日前缴纳。</p>
-            <span class="my-date">2015年5月25日</span>
+            <p>{{content}}</p>
+            <span class="my-date">{{dateToString time}}</span>
           </div>
         </a>
       </li>
-      <!-- 第二条 -->
-      <li class="ui-item">
-        <a href="#">
-          <div class="my-sub-title"><span class="ui-icon ion-ios7-email"></span> 明信片送达</div>
-          <div class="my-notice">
-            <p>311宿舍小明同学，你的明信片已经到了，在楼下送达室，请及时领取。</p>
-            <span class="my-date">2015年5月25日</span>
-          </div>
-        </a>
-      </li>
+      {{/each}}
 
     </ul>
-
+  {{else}}
+  <div class="ui-yick-init"><span class="ui-icon ion-coffee"></span>
+    <h3>空空如也</h3>
+    <p>你还没有加入任何房间。<a href="/create">去创建（加入）</a></p> </div>
+  {{/if}}
   </div>
 </template>

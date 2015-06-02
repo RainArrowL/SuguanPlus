@@ -1,0 +1,24 @@
+<template name="studentTopBar">
+  <div class="ui-yick-top-bar ui-top-bar js-no-bounce">
+    {{#if index}}
+      <h6>
+        {{#if currentUser }}
+          {{#if hasRoom}}
+            {{ getRoomName currentUser.profile.room }}
+          {{else}}
+            宿管Plus
+          {{/if}}
+        {{/if}}
+      </h6>
+    {{/if}}
+    {{#if create}}
+      <button class="ui-yick-top-btn-left ui-yick-top-btn ui-button" id="back-btn"><span class="ui-icon ion-ios-arrow-back"></span><span> 返回</span></button>
+      <h6>
+        加入宿舍
+      </h6>
+    {{/if}}
+    {{#if me}}
+      <h6>我</h6>
+    {{/if}}
+  </div>
+</template>

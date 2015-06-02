@@ -1,7 +1,21 @@
 <template name="createBuilding">
-  创建楼栋
-  <form action="" id="create-building">
-    <input type="text" placeholder="楼栋名称" id="building-name">
-    <input type="submit">
-  </form>
+  {{> adminTopBar create=1}}
+  <div class="ui-page-content ui-yick-page">
+    <div id="my-search" class="ui-search">
+      <form class="ui-search-form ui-yick-search-form">
+        <input id="building-name" type="search" autocomplete="off" autocorrect="off" placeholder="楼栋名称" class="ui-search-input">
+        <span id="my-search-reset" class="ui-search-reset">x</span>
+        <span id="my-search-cancel" class="ui-search-cancel">取消</span>
+      </form>
+    </div>
+    <!-- <ul class="ui-list" id="search-result">
+      <li class="ui-item"><a href="#">消息中心</a></li>
+      <li class="ui-item"><a href="#">收藏商家</a></li>
+    </ul> -->
+    <div class="ui-yick-result ui-yick-btn-panel ui-panel" style="display: none;">
+      <p>没有找到"<span class="ui-yick-keyword">至善园四号</span>"相关结果</p>
+      <button id="submit-btn" type="button" class="ui-button ui-block ui-info">添加楼栋</button>
+    </div>
+    
+  </div>
 </template>

@@ -1,8 +1,20 @@
 <template name="createRoom">
-  创建房间
-  <form action="" id="create-room">
-    <input type="text" placeholder="所属楼栋" id="building-name">
-    <input type="text" placeholder="宿舍名称" id="room-name">
-    <input type="submit">
-  </form>
+  {{> studentTopBar create=1}}
+  <div class="ui-page-content ui-yick-page">
+    <form action="" id="create-room">
+      <div class="ui-yick-list-panel ui-panel">
+        <div class="ui-yick-row">
+            <select class="ui-yick-select" name="building-name" id="building-name">
+              <option value="慎思园">慎思园</option>
+            </select>
+        </div>
+        <div class="ui-yick-row">
+          <input type="number" class="ui-yick-input" placeholder="宿舍名称  如：311" id="room-name" >
+        </div>
+      </div>
+      <div class="ui-yick-btn-panel ui-panel">
+        <button type="submit" class="ui-button ui-block ui-info">创建</button>
+      </div>
+    </form>
+  </div>
 </template>

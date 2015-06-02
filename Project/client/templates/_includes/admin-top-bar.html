@@ -3,15 +3,38 @@
     {{#if index}}
       <h6>
         {{#if currentUser }}
-          {{ currentUser.profile.building }}
+          {{#if hasBuilding}}
+            {{ currentUser.profile.building }}
+          {{else}}
+            宿管Plus
+          {{/if}}
         {{/if}}
       </h6>
+      {{#if hasBuilding}}
       <button class="ui-yick-top-btn ui-button" id="edit-btn">编辑</button>
+      {{/if}}
+    {{/if}}
+    {{#if create}}
+      <button class="ui-yick-top-btn-left ui-yick-top-btn ui-button" id="back-btn"><span class="ui-icon ion-ios-arrow-back"></span><span> 返回</span></button>
+      <h6>
+        创建楼栋
+      </h6>
     {{/if}}
     {{#if post}}
       <button class="ui-yick-top-btn-left ui-yick-top-btn ui-button" id="back-btn"><span class="ui-icon ion-ios-arrow-back"></span><span> 返回</span></button>
       <h6>
         发送消息
+      </h6>
+    {{/if}}
+    {{#if me}}
+      <h6>
+        我
+      </h6>
+    {{/if}}
+    {{#if signup}}
+      <button class="ui-yick-top-btn-left ui-yick-top-btn ui-button" id="back-btn"><span class="ui-icon ion-ios-arrow-back"></span><span> 返回</span></button>
+      <h6>
+        注册
       </h6>
     {{/if}}
   </div>

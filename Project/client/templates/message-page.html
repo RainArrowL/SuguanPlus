@@ -1,8 +1,9 @@
 <template name="messagePage">
-  {{> messageTopBar}}
+  {{> messageTopBar cat=cat}}
   <div class="ui-page-content ui-yick-page">
-    <h3 class="ui-caption">历史水电费消息</h3>
+    <h3 class="ui-caption">历史消息</h3>
     {{#each msglist}}
+    {{#if isCat category ..}}
     <ul class="ui-list">
       <li class="ui-item">
         <a href="#">
@@ -14,6 +15,7 @@
         </a>
       </li>
     </ul>
+    {{/if}}
     {{/each}}
   </div>
   

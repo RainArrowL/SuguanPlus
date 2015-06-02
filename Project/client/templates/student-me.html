@@ -1,15 +1,26 @@
 <template name="studentMe">
-  {{#if currentUser }}
-    {{ currentUser.profile.name }}
-  {{/if}}
-  {{# if currentUser.profile.room }}
-  {{else}}
-    <a href="/create">创建宿舍</a>
-    <a href="/join">加入宿舍</a>
-  {{/if}}
-  <ul class="ui-list">
-    <li class="ui-item">
-      <a href="/logout"><span class="ui-icon ion-log-out"></span> 退出登录</a>
-    </li>
-  </ul>
+  {{> studentTopBar me=1}}
+  <div class="ui-page-content ui-yick-page">
+    {{# if currentUser.profile.room }}
+      <ul class="ui-yick-list ui-list">
+        <li class="ui-item"><a href="#">姓名<span class="ui-yick-value ui-right">{{currentUser.profile.name}}</span></a></li>
+        <li class="ui-item"><a href="#">用户名<span class="ui-yick-value ui-right">{{currentUser.username}}</span></a></li>
+        <li class="ui-item"><a href="#">宿舍<span class="ui-yick-value ui-right">{{getRoomName currentUser.profile.room}}</span></a></li>
+      </ul>
+    {{else}}
+      <ul class="ui-yick-list ui-list">
+        <li class="ui-item"><a href="#">姓名<span class="ui-yick-value ui-right">{{currentUser.profile.name}}</span></a></li>
+        <li class="ui-item"><a href="#">用户名<span class="ui-yick-value ui-right">{{currentUser.username}}</span></a></li>
+      </ul>
+      <ul class="ui-list arrow-right">
+        <li class="ui-item"><a href="/create"><span class="ui-yick-item-icon ui-icon ion-plus-round"></span> 创建宿舍</a></li>
+        <li class="ui-item"><a href="/join"><span class="ui-yick-item-icon ui-icon ion-forward"></span> 加入宿舍</a></li>
+      </ul>
+    {{/if}}
+      <ul class="ui-list">
+        <li class="ui-item">
+          <a href="/logout"><span class="ui-yick-item-icon ui-icon ion-log-out"></span> 退出登录</a>
+        </li>
+      </ul>
+  </div>
 </template>
