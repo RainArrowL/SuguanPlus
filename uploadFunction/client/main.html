@@ -1,0 +1,17 @@
+<head>
+  <title>Leaderboard</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
+
+<body>
+  <div class="outer">
+    {{> myForm}}
+  </div>
+</body>
+
+<template name="myForm">
+  <form id="fileUpload" action="/upload" method="post" enctype="multipart/form-data">
+    <p>要上传的文件<input type="file" name="file"/></p>
+    <p><input type="submit" value="上传" /></p>
+  </form>
+</template>
